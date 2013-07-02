@@ -20,6 +20,7 @@
 
 # Logs and databases #
 *.log
+tags
 
 # OS generated files #
 .DS_Store
