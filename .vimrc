@@ -16,10 +16,10 @@ set term=builtin_ansi
 set wildmenu
 set ttyfast
 
-set backupdir=~/.vim/tmp/swaps
-set directory=~/.vim/tmp/backups
+set backupdir=~/.vim/swaps
+set directory=~/.vim/backups
 if exists("&undodir")
-	set undodir=~/.vim/tmp/undo
+	set undodir=~/.vim/undo
 endif
 
 syntax on                   " syntax highlighting
