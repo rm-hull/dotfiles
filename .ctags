@@ -1,0 +1,41 @@
+--recurse=yes
+--tag-relative=yes
+--exclude=.git
+
+--langdef=clojure
+--langmap=clojure:.clj
+--regex-clojure=/\([ \t]*create-ns[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/n,namespace/
+--regex-clojure=/\([ \t]*def[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/d,definition/
+--regex-clojure=/\([ \t]*defn-?[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/f,function/
+--regex-clojure=/\([ \t]*defmacro[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/m,macro/
+--regex-clojure=/\([ \t]*definline[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/i,inline/
+--regex-clojure=/\([ \t]*defmulti[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/a,multimethod definition/
+--regex-clojure=/\([ \t]*defmethod[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/b,multimethod instance/
+--regex-clojure=/\([ \t]*defonce[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/c,definition (once)/
+--regex-clojure=/\([ \t]*defstruct[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/s,struct/
+--regex-clojure=/\([ \t]*intern[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/v,intern/
+--regex-clojure=/\([ \t]*ns[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/n,namespace/
+
+--langdef=groovy
+--langmap=groovy:.groovy
+--regex-groovy=/^[ \t]*[(private|public|protected) ( \t)]*def[ \t]+([A-Za-z0-9_]+)[ \t]*\(/\1/f,function,functions/
+--regex-groovy=/^[ \t]*private def[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/v,private,private variables/
+--regex-groovy=/^[ \t]*public def[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/u,public,public variables/
+--regex-groovy=/^[ \t]*[abstract ( \t)]*[(private|public) ( \t)]*class[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/c,class,classes/
+--regex-groovy=/^[ \t]*[abstract ( \t)]*[(private|public) ( \t)]*enum[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/c,class,classes/
+
+--regex-JavaScript=/^var[ \t]+([a-zA-Z0-9_$]+) = \[/\1/a,array/
+--regex-JavaScript=/^var[ \t]+([a-zA-Z0-9_$]+) = \{/\1/o,object/
+--regex-JavaScript=/^var[ \t]+([a-zA-Z0-9_$]+) = (^{^[)+/\1/r,var/
+--regex-JavaScript=/^[ \t]*(this\.)?([A-Za-z0-9_$()]+)[ \t]*[:=][ \t]*function[ \t]*\([A-Za-z0-9 ,]*\)/\2/u,function/
+--regex-JavaScript=/^[ \t]*function ([a-z0-9]+[A-Za-z0-9_]*)/\1/u,function/
+--regex-JavaScript=/^[ \t]*([A-Za-z0-9]+)\.prototype\.([a-z0-9]+[A-Za-z0-9_]*)/\1 : \2/u,function/
+--regex-JavaScript=/^[ \t]*function ([A-Z]+[A-Za-z0-9_]*)/\1/o,object/
+
+--langdef=scala
+--langmap=scala:.scala
+--regex-scala=/def\s*([^(=[({ ]*)/\1/d,definition/
+--regex-scala=/class\s*([^[( {]*)/\1/c,class/
+--regex-scala=/trait\s*([^[( {]*)/\1/t,trait/
+--regex-scala=/object\s*([^ {]*)/\1/o,object/
+--regex-scala=/val\s*([^= ]*)/\1/v,val/
