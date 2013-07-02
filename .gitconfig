@@ -79,4 +79,4 @@
 	insteadOf = "gist:"
 
 [push]
-	default = tracking
+	default = matching
