@@ -58,7 +58,7 @@ alias gurl='curl --compressed'
 # Get week number
 alias week='date +%V'
 
-alias update='sudo apt-get update; apt-get dist-upgrade -Y; apt-get autoclean; apt-get autoremove'
+alias update='sudo apt-get update; apt-get dist-upgrade -y; apt-get autoclean; apt-get autoremove'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
