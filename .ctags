@@ -16,6 +16,8 @@
 --regex-clojure=/\([ \t]*intern[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/v,intern/
 --regex-clojure=/\([ \t]*ns[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/n,namespace/
 --regex-clojure=/\([ \t]*defprotocol[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/p,protocol/
+--regex-clojure=/\([ \t]*deftest[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/t,test/
+--regex-clojure=/\([ \t]*defrecord[ \t]+([-[:alnum:]*+!_:\/.?]+)/\1/r,record/
 
 --langdef=groovy
 --langmap=groovy:.groovy
