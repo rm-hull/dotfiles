@@ -277,7 +277,7 @@ vnoremap > >gv
 autocmd BufRead * set formatoptions=tcql nocindent comments&
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,scala,clj,groovy autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+autocmd FileType c,cpp,java,php,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 let g:clojure_align_multiline_strings = 1
 
