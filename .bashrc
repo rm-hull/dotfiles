@@ -162,7 +162,7 @@ else
 fi
 }
 
-export PS1='\[\e]0;\w\a\]\n\[\e[0;32m\]\u@\h \[\e[m\]\[\e[33m\]\w\[\e[0m\]\[\e[m\]\[\e[0;36m\] $(isgitrepo 2>&1 > /dev/null && git symbolic-ref HEAD | sed s%refs/heads/%%)\[\e[m\]\r\n\$ '
+export PS1='\[\e]0;\u@\h: \w\a\]\n\[\e[0;32m\]\u@\h \[\e[m\]\[\e[33m\]\w\[\e[0m\]\[\e[m\]\[\e[0;36m\] $(isgitrepo 2>&1 > /dev/null && git symbolic-ref HEAD | sed s%refs/heads/%%)\[\e[m\]\r\n\$ '
 export EDITOR='gvim -f'
 
 export LESS='-R'
