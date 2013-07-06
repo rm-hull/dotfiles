@@ -101,7 +101,7 @@ map <F12> :Make<cr>
 map <S-F11> :set wrap!<cr>
 let tlist_javascript_settings = 'javascript;r:var;s:string;a:array;o:object;u:function'
 let tlist_groovy_settings = 'groovy;c:class;f:method;p:property;v:private variables;x:variables;u:public variables'
-let tlist_clojure_settings = 'clojure;f:function;d:definition;p:protocol;n:namespace;m:macro;i:inline;a:multimethod definition;b:multimethod instance;c:definition (once);s:struct;v:intern;t:test;r:record'
+let tlist_clojure_settings = 'clojure;n:namespace;d:definition;c:definition (once);s:struct;f:function;p:protocol;m:macro;i:inline;a:multimethod definition;b:multimethod instance;v:intern;t:test;r:record'
 let Tlist_Sort_Type = "name"
 let tlist_show_one_file = 1
 let vimclojure#NailgunClient = "/home/rhu/bin/ng"
