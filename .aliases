@@ -103,7 +103,11 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
 
-alias vi="gvim"
+if [ x"$DISPLAY" = x ]; then
+    alias vi="vim"
+else
+    alias vi="gvim"
+fi
 alias eclipse="UBUNTU_MENUPROXY=0 LIBOVERLAY_SCROLLBAR=0 eclipse"
 alias luke="java -jar /usr/lib/java/lukeall-3.1.0.jar"
 
