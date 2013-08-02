@@ -280,4 +280,8 @@ autocmd BufRead * set formatoptions=tcql nocindent comments&
 autocmd FileType c,cpp,java,php,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 let g:clojure_align_multiline_strings = 1
+let g:syntastic_javascript_checker = "jshint"
+let g:syntastic_json_checker = "jsonlint"
+let g:syntastic_css_checker = "csslint"
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
