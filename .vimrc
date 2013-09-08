@@ -23,7 +23,7 @@ if exists("&undodir")
 endif
 
 syntax on                   " syntax highlighting
-set autochdir              " always switch to the current file directory.. Messes with some plugins, best left commented out
+"set autochdir              " always switch to the current file directory.. Messes with some plugins, best left commented out
 scriptencoding utf-8
 set encoding=utf-8 nobomb
 set binary
@@ -277,7 +277,7 @@ vnoremap > >gv
 autocmd BufRead * set formatoptions=tcql nocindent comments&
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,php,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,javascript,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 let g:clojure_align_multiline_strings = 1
 let g:syntastic_javascript_checker = "jshint"
