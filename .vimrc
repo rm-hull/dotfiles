@@ -283,5 +283,6 @@ let g:clojure_align_multiline_strings = 1
 let g:syntastic_javascript_checker = "jshint"
 let g:syntastic_json_checker = "jsonlint"
 let g:syntastic_css_checker = "csslint"
+let g:syntastic_auto_loc_list=0
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
