@@ -19,7 +19,8 @@ set ttyfast
 set backupdir=~/.vim/swaps
 set directory=~/.vim/backups
 if exists("&undodir")
-	set undodir=~/.vim/undo
+    set undofile
+    set undodir=~/.vim/undo
 endif
 
 syntax on                   " syntax highlighting
