@@ -67,7 +67,7 @@ set tildeop             " allow tilde (~) to act as an operator -- ~w, etc.
 set showcmd             " display incomplete commands
 set tags=tags;/
 
-set wildignore=*.o,*.class,~*,*.swp
+set wildignore=*.o,*.class,~*,*.swp,*/.git/*,*/.svn/*,*/target/*
 set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all.
 set whichwrap=b,s,h,l,<,>,[,]   " backspace and cursor keys wrap to
 set foldenable                  " auto fold code
