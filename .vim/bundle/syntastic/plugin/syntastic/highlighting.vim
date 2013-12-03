@@ -29,10 +29,11 @@ endfunction
 function! g:SyntasticHighlightingNotifier.refresh(loclist)
     if self.enabled()
         call self.reset(a:loclist)
+        call syntastic#log#debug(g:SyntasticDebugNotifications, 'highlighting: refresh')
         let buf = bufnr('')
         let issues = filter(a:loclist.filteredRaw(), 'v:val["bufnr"] == buf')
         for item in issues
-            let group = item['type'] == 'E' ? 'SyntasticError' : 'SyntasticWarning'
+            let group = item['type'] ==? 'E' ? 'SyntasticError' : 'SyntasticWarning'
 
             " The function `Syntastic_{filetype}_{checker}_GetHighlightRegex` is
             " used to override default highlighting.
@@ -55,6 +56,7 @@ endfunction
 " Remove all error highlights from the window
 function! g:SyntasticHighlightingNotifier.reset(loclist)
     if s:has_highlighting
+        call syntastic#log#debug(g:SyntasticDebugNotifications, 'highlighting: reset')
         for match in getmatches()
             if stridx(match['group'], 'Syntastic') == 0
                 call matchdelete(match['id'])
