@@ -287,3 +287,4 @@ let g:syntastic_css_checker = "csslint"
 let g:syntastic_auto_loc_list=0
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --exclude-standard']
