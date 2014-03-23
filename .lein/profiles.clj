@@ -5,7 +5,7 @@
     [jonase/eastwood "0.0.2"]
     [lein-expectations "0.0.7"]
     [lein-autoexpect "0.2.5"]
-    [lein-ancient "0.5.4"]]
+    [lein-ancient "0.5.5"]]
   :aliases {"slamhound" ["run" "-m" "slam.hound"]}
   :dependencies [[slamhound "RELEASE"]
                  ;[clj-stacktrace "0.2.5"]
