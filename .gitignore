@@ -41,3 +41,7 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 target
+
+# Clojure
+.lein-repl-history
+.nrepl-port
