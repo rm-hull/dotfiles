@@ -103,10 +103,9 @@ map <S-F11> :set wrap!<cr>
 let tlist_javascript_settings = 'javascript;r:var;s:string;a:array;o:object;u:function'
 let tlist_groovy_settings = 'groovy;c:class;f:method;p:property;v:private variables;x:variables;u:public variables'
 let tlist_clojure_settings = 'clojure;n:namespace;d:definition;c:definition (once);s:struct;f:function;p:protocol;m:macro;i:inline;a:multimethod definition;b:multimethod instance;v:intern;t:test;r:record'
+let tlist_haskell_settings = 'haskell;t:type;c:constructor;f:function;m:module'
 let Tlist_Sort_Type = "name"
 let tlist_show_one_file = 1
-let vimclojure#NailgunClient = "/home/rhu/bin/ng"
-let vimclojure#DynamicHighlighting = 1
 " Word completion
 "set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 set complete-=k complete+=k
@@ -278,13 +277,18 @@ vnoremap > >gv
 autocmd BufRead * set formatoptions=tcql nocindent comments&
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,php,javascript,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,haskell,javascript,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 let g:clojure_align_multiline_strings = 1
 let g:syntastic_javascript_checker = "jshint"
 let g:syntastic_json_checker = "jsonlint"
 let g:syntastic_css_checker = "csslint"
 let g:syntastic_auto_loc_list=0
+
+let hs_highlight_delimiters = 1
+let hs_highlight_boolean = 1
+let hs_highlight_types = 1
+let hs_highlight_more_types = 1
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --exclude-standard']
