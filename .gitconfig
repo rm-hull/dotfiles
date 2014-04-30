@@ -80,6 +80,6 @@
 	insteadOf = "gist:"
 
 [push]
-	default = simple
+#	default = matching
 [init]
 	templatedir = ~/.git_template
