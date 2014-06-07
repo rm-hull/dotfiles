@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/vim-slamhound"]
 	path = .vim/bundle/vim-slamhound
 	url = https://github.com/guns/vim-slamhound.git
+[submodule ".vim/bundle/cypher-vim-syntax"]
+	path = .vim/bundle/cypher-vim-syntax
+	url = git://github.com/neo4j-contrib/cypher-vim-syntax.git
