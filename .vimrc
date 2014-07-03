@@ -293,3 +293,6 @@ let hs_highlight_more_types = 1
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --exclude-standard']
+
+:inoremap <A-l> <C-v>u3bb<Space>
+:autocmd BufRead,BufNewFile *.ylx setlocal filetype=scheme
