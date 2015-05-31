@@ -280,11 +280,16 @@ autocmd BufRead * set formatoptions=tcql nocindent comments&
 " Remove trailing whitespaces and ^M chars
 autocmd FileType sql,c,cpp,java,php,haskell,javascript,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:clojure_align_multiline_strings = 1
-let g:syntastic_javascript_checker = "jshint"
+let g:syntastic_javascript_checker = "eslint"
 let g:syntastic_json_checker = "jsonlint"
 let g:syntastic_css_checker = "csslint"
-let g:syntastic_auto_loc_list=0
+
 
 let hs_highlight_delimiters = 1
 let hs_highlight_boolean = 1
