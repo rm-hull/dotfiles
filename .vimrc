@@ -176,7 +176,7 @@ autocmd FileType perl
     \ endif
 
 " Ruby files
-autocmd FileType ruby,eruby
+autocmd FileType ruby,eruby,javascript
     \ set tabstop=2 shiftwidth=2 softtabstop=2 |
     \ set formatoptions=croql smartindent
 "    \ set foldenable foldmethod=syntax foldcolumn=2 foldnestmax=2 |
@@ -191,11 +191,8 @@ autocmd FileType scala
     \   exe "normal g`\"" |
     \ endif
 
-"[ERROR] /home/richard.hull/dev/services/costsandincomes/service/src/main/scala/com/trafigura/costsandincomes/events/RefDataManager.scala:183: error: not enough arguments for method getUsers: (baseParams: com.trafigura.common.BaseServiceParams)List[com.trafigura.edm.security.reference.User].
-"[INFO] Unspecified value parameter baseParams.
-"[INFO]         val users = securityService.getUsers()
-"[INFO]                                             ^
-
+" Makrdown files
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " Are we starting VIM in a maven-aware directory?
 if filereadable("pom.xml")
@@ -278,7 +275,7 @@ vnoremap > >gv
 autocmd BufRead * set formatoptions=tcql nocindent comments&
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType sql,c,cpp,java,php,haskell,javascript,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType markdown,sql,c,cpp,java,php,haskell,javascript,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
