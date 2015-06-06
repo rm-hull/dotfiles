@@ -282,7 +282,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:clojure_align_multiline_strings = 1
-let g:syntastic_javascript_checker = "jsxlint"
+let g:syntastic_javascript_checker = "jsxhint"
 let g:syntastic_json_checker = "jsonlint"
 let g:syntastic_css_checker = "csslint"
 let g:jsx_ext_required = 0
