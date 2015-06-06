@@ -10,7 +10,6 @@ execute pathogen#helptags()
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-source $VIMRUNTIME/mswin.vim
 source $VIMRUNTIME/syntax/syntax.vim
 
 set term=builtin_ansi
@@ -176,7 +175,7 @@ autocmd FileType perl
     \ endif
 
 " Ruby files
-autocmd FileType ruby,eruby,javascript
+autocmd FileType ruby,eruby,javascript,coffeescript
     \ set tabstop=2 shiftwidth=2 softtabstop=2 |
     \ set formatoptions=croql smartindent
 "    \ set foldenable foldmethod=syntax foldcolumn=2 foldnestmax=2 |
@@ -275,18 +274,18 @@ vnoremap > >gv
 autocmd BufRead * set formatoptions=tcql nocindent comments&
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType markdown,sql,c,cpp,java,php,haskell,javascript,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType coffeescript,markdown,sql,c,cpp,java,php,haskell,javascript,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:clojure_align_multiline_strings = 1
-let g:syntastic_javascript_checker = "eslint"
+let g:syntastic_javascript_checker = "jsxlint"
 let g:syntastic_json_checker = "jsonlint"
 let g:syntastic_css_checker = "csslint"
-
+let g:jsx_ext_required = 0
 
 let hs_highlight_delimiters = 1
 let hs_highlight_boolean = 1

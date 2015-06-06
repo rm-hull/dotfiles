@@ -15,3 +15,4 @@ if &t_Co > 2 || has("gui_running")
   "match rightMargin /.\%>78v/
 endif
 
+source $VIMRUNTIME/mswin.vim
