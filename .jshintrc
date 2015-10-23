@@ -19,5 +19,5 @@
   "globals": {
     "define": true
   },
-  "predef": [ "Promise", "it", "describe", "casper" ]
+  "predef": [ "Promise", "it", "describe", "casper", "beforeEach", "afterEach", "npfs" ]
 }
