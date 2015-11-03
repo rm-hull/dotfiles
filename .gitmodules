@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/dockerfile.git"]
 	path = .vim/bundle/dockerfile.git
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule ".vim/bundle/pipe2eval"]
+	path = .vim/bundle/pipe2eval
+	url = https://github.com/zweifisch/pipe2eval.git
