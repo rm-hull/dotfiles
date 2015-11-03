@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/pipe2eval"]
 	path = .vim/bundle/pipe2eval
 	url = https://github.com/zweifisch/pipe2eval.git
+[submodule ".vim/bundle/vim-quickrun"]
+	path = .vim/bundle/vim-quickrun
+	url = https://github.com/thinca/vim-quickrun
