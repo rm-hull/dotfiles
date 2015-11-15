@@ -129,32 +129,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-
-
-export GDK_NATIVE_WINDOWS=1
-
-export JAVA_HOME="/usr/lib/jvm/latest"
-export JAVA_OPTS="-server -XX:+UseCompressedOops -XX:+AggressiveOpts -XX:+DoEscapeAnalysis"
-#export JAVA_OPTS="-server -XX:+UseCompressedOops -XX:+AggressiveOpts -XX:+DoEscapeAnalysis -Xms128m -Xmx2048m -XX:MaxPermSize=256m -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djava.net.preferIPv4Stack=true"
-
-export ANT_HOME="/usr/lib/java/apache-ant-1.8.2"
-export MVN_HOME="/usr/lib/java/apache-maven-3.0.5"
-export GROOVY_HOME="/usr/lib/java/groovy-2.0.0"
-export GRAILS_HOME="/usr/lib/java/grails-1.3.7"
-export JBOSS_HOME="/usr/lib/java/jboss-5.1.0.GA"
-export TYPESAFE_HOME="/usr/lib/java/typesafe-stack"
-export AKKA_HOME="/usr/lib/java/typesafe-stack"
-export ANDROID_SDK_HOME="/usr/lib/java/android-sdk-linux"
-export SMLNJ_HOME="/usr/local/sml-110.75"
-
 PATH="$PATH:~/bin"
-PATH="$PATH:$MVN_HOME/bin:$ANT_HOME/bin:$JAVA_HOME/bin"
-PATH="$PATH:$ANDROID_SDK_HOME/tools:$ANDROID_SDK_HOME/platform-tools"
-PATH="$PATH:$GROOVY_HOME/bin:$GRAILS_HOME/bin:$TYPESAFE_HOME/bin" 
-PATH="$PATH:/usr/lib/java/eclipse"
-PATH="$PATH:/usr/share/perforce/p4v-2010.1.256349/bin"
-PATH="$PATH:$SMLNJ_HOME/bin"
-PATH="$PATH:/usr/local/fritzing/latest"
 export PATH
 
 isgitrepo()
