@@ -5,6 +5,7 @@
     [lein-cljfmt "0.3.0"]
     [lein-pprint "1.1.1"]
     [lein-assoc "0.1.0"]
+    [lein-cloverage "1.0.6"]
     [jonase/eastwood "0.0.2"]
     [lein-expectations "0.0.7"]
     [lein-autoexpect "0.2.5"]
