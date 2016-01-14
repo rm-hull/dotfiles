@@ -1,7 +1,6 @@
 {:user
   {:plugins [
     [cider/cider-nrepl "0.10.1"]
-    [refactor-nrepl "2.0.0-SNAPSHOT"]
     [lein-cljfmt "0.3.0"]
     [lein-pprint "1.1.1"]
     [lein-assoc "0.1.0"]
