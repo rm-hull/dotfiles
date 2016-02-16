@@ -8,6 +8,7 @@
     [jonase/eastwood "0.0.2"]
     [lein-expectations "0.0.7"]
     [lein-autoexpect "0.2.5"]
+    [com.jakemccrary/lein-test-refresh "0.13.0"]
     [lein-ancient "0.5.5"]]
   :repl-options {:timeout 300000}
   :aliases {"slamhound" ["run" "-m" "slam.hound"]}
