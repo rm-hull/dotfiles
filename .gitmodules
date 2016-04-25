@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/vim-clojure-highlight"]
 	path = .vim/bundle/vim-clojure-highlight
 	url = https://github.com/guns/vim-clojure-highlight.git
+[submodule ".vim/bundle/vim-sexp"]
+	path = .vim/bundle/vim-sexp
+	url = https://github.com/guns/vim-sexp
