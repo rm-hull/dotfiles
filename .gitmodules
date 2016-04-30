@@ -52,3 +52,9 @@
 [submodule ".vim/bundle/vim-polyglot"]
 	path = .vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = .vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule ".vim/bundle/unicode.vim"]
+	path = .vim/bundle/unicode.vim
+	url = https://github.com/chrisbra/unicode.vim
