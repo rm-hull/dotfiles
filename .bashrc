@@ -70,43 +70,9 @@ case "$TERM" in
     xterm-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-     PS1='\[\e]0;\u@\h: \w\a\]\n\[\e[0;32m\]\u@\h \[\e[m\]\[\e[33m\]\w\[\e[0m\]\[\e[m\]\[\e[0;36m\] $(isgitrepo 2>&1 > /dev/null && git symbolic-ref HEAD | sed s%refs/heads/%%)\[\e[m\]\r\n\$ '
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -129,28 +95,28 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-PATH="$PATH:~/bin"
-export PATH
-
 isgitrepo()
 {
-if git rev-parse  --git-dir 2>&1 > /dev/null ; then
+if git rev-parse --git-dir 2>&1 > /dev/null ; then
   return 0
 else
   return 1
 fi
 }
 
-export PS1='\[\e]0;\u@\h: \w\a\]\n\[\e[0;32m\]\u@\h \[\e[m\]\[\e[33m\]\w\[\e[0m\]\[\e[m\]\[\e[0;36m\] $(isgitrepo 2>&1 > /dev/null && git symbolic-ref HEAD | sed s%refs/heads/%%)\[\e[m\]\r\n\$ '
+function git_dirty() {
+  [[ $(git diff-index --quiet --cached HEAD 2>&1 /dev/null) != 0 ]] && echo "${RED}[DIRTY]${NONE}"
+}
+
+export PS1='\[\e]0;\u@\h: \w\a\]\n\[\e[0;32m\]\u@\h \[\e[m\]\[\e[33m\]\w\[\e[0m\]\[\e[m\]\[\e[0;36m\] $(isgitrepo 2>&1 >/dev/null && git symbolic-ref HEAD | sed s%refs/heads/%%) $(isgitrepo 2>&1 > /dev/null && git_dirty)\[\e[m\]\r\n\$ '
 export EDITOR='gvim -f'
 
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
+
+export PATH=$PATH:/usr/local/heroku/bin:/usr/local/sbin:~/bin
 
 uname -snrvm
