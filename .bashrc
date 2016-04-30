@@ -105,7 +105,7 @@ fi
 }
 
 function git_dirty() {
-  [[ $(git diff-index --quiet --cached HEAD 2>&1 /dev/null) != 0 ]] && echo "${RED}[DIRTY]${NONE}"
+  if [[ -n $(git status --porcelain) ]]; then  echo "${RED}[DIRTY]${NONE}"; fi
 }
 
 export PS1='\[\e]0;\u@\h: \w\a\]\n\[\e[0;32m\]\u@\h \[\e[m\]\[\e[33m\]\w\[\e[0m\]\[\e[m\]\[\e[0;36m\] $(isgitrepo 2>&1 >/dev/null && git symbolic-ref HEAD | sed s%refs/heads/%%) $(isgitrepo 2>&1 > /dev/null && git_dirty)\[\e[m\]\r\n\$ '
