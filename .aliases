@@ -100,7 +100,6 @@ if [ x"$DISPLAY" = x ]; then
 else
     alias vi="gvim"
 fi
-alias eclipse="UBUNTU_MENUPROXY=0 LIBOVERLAY_SCROLLBAR=0 eclipse"
 alias luke="java -jar /usr/lib/java/luke-4.3.1-jar-with-dependencies.jar"
 
 alias ghci="ghci-color"
