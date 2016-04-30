@@ -34,6 +34,11 @@ set modelines=4
 set lcs=tab:▸\ ,trail:·,nbsp:_
 set list
 
+if !has('gui_running')
+    set background=dark
+    colorscheme solarized
+endif
+
 " set autowrite                  " automatically write a file when leaving a modified buffer
 set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
