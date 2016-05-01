@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/unicode.vim"]
 	path = .vim/bundle/unicode.vim
 	url = https://github.com/chrisbra/unicode.vim
+[submodule ".vim/bundle/vim-eastwood"]
+	path = .vim/bundle/vim-eastwood
+	url = https://github.com/venantius/vim-eastwood.git
