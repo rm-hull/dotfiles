@@ -128,6 +128,11 @@ nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
 iab xstamp  <C-R>=strftime("%a %b %d %H:%M:%S %Y")<CR>
 iab lastmod  <C-R>="Last Modified: " . strftime("%a %b %d %H:%M:%S %Y")<CR>
 
+au Filetype html setlocal sw=2 ts=2 sts=2
+au Filetype less setlocal sw=2 ts=2 sts=2
+au Filetype css setlocal sw=2 ts=2 sts=2
+au Filetype sass setlocal sw=2 ts=2 sts=2
+
 autocmd BufRead,BufNewFile *.cljs setlocal filetype=clojure
 autocmd BufRead,BufNewFile *.json setfiletype json syntax=javascript
 
