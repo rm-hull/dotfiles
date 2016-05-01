@@ -287,6 +287,8 @@ let g:syntastic_json_checkers = ["jsonlint"]
 let g:syntastic_css_checkers = ["csslint"]
 let g:jsx_ext_required = 0
 
+let g:vim_markdown_folding_disabled = 1
+
 let hs_highlight_delimiters = 1
 let hs_highlight_boolean = 1
 let hs_highlight_types = 1
