@@ -17,7 +17,7 @@ endif
 
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
-let g:indentLine_color_gui = '#F0F0F0'
+let g:indentLine_color_gui = '#E0E0E0'
 let g:indentLine_concealcursor=0
 
 source $VIMRUNTIME/mswin.vim
