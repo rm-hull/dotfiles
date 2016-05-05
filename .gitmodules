@@ -31,9 +31,6 @@
 [submodule ".vim/bundle/vim-quickrun"]
 	path = .vim/bundle/vim-quickrun
 	url = https://github.com/thinca/vim-quickrun
-[submodule ".vim/bundle/vim-salve"]
-	path = .vim/bundle/vim-salve
-	url = https://github.com/tpope/vim-salve.git
 [submodule ".vim/bundle/vim-dispatch"]
 	path = .vim/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
