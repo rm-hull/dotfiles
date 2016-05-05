@@ -162,7 +162,7 @@ autocmd BufNewFile,BufRead *.c,*.h,*.cpp,*.c++,*.pc
     \ set cindent sm formatoptions=croql |
     \ set foldenable foldmethod=marker foldcolumn=2 |
     \ set comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:- |
-	\ set efm+=%f:%l:\ %m,In\ file\ included\ from\ %f:%l:,\^I\^Ifrom\ %f:%l%m |
+    \ set efm+=%f:%l:\ %m,In\ file\ included\ from\ %f:%l:,\^I\^Ifrom\ %f:%l%m |
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
@@ -301,6 +301,8 @@ let hs_highlight_more_types = 1
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --exclude-standard']
+
+let g:indentLine_enabled = 0
 
 :inoremap <A-l> <C-v>u3bb<Space>
 autocmd BufRead,BufNewFile *.ylx setlocal filetype=scheme

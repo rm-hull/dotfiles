@@ -15,4 +15,9 @@ if &t_Co > 2 || has("gui_running")
   "match rightMargin /.\%>78v/
 endif
 
+let g:indentLine_enabled = 1
+let g:indentLine_char = '┆'
+let g:indentLine_color_gui = '#F0F0F0'
+let g:indentLine_concealcursor=0
+
 source $VIMRUNTIME/mswin.vim
