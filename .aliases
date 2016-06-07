@@ -20,7 +20,13 @@ alias s="subl ."
 alias o="open"
 alias oo="open ."
 
-colorflag="--color"
+if [ $(uname) = 'Darwin' ]; then
+    colorflag="-G"
+else
+    colorflag="--color"
+fi
+
+
 
 # List all files colorized in long format
 alias l="ls -l ${colorflag}"
@@ -95,7 +101,7 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
     alias "$method"="lwp-request -m '$method'"
 done
 
-if [ x"$DISPLAY" = x ]; then
+if [ x"$DISPLAY" = x ] && [ $(uname) != 'Darwin' ]; then
     alias vi="vim"
 else
     alias vi="gvim"
