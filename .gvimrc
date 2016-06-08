@@ -1,5 +1,5 @@
 set cursorline
-set go=aegimrtT
+set go=egimrtT
 set guifont=Monospace\ 8
 set mousehide         " Hide the mouse when typing text
 map <S-Insert> <MiddleMouse> " Make shift-insert work like in Xterm
@@ -19,5 +19,3 @@ let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
 let g:indentLine_color_gui = '#E0E0E0'
 let g:indentLine_concealcursor=0
-
-source $VIMRUNTIME/mswin.vim
