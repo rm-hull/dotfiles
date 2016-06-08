@@ -95,22 +95,20 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-isgitrepo()
-{
-if git rev-parse --git-dir 2>&1 > /dev/null ; then
-  return 0
-else
-  return 1
+if [ $(uname) = 'Darwin' ]; then
+    . /usr/local/etc/bash_completion.d/git-completion.bash
+    . /usr/local/etc/bash_completion.d/git-prompt.sh
 fi
-}
 
-function git_dirty() {
-if [[ x"$(git status --porcelain 2>/dev/null)" != x ]]; then
-  echo "${RED}[DIRTY]${NONE}"
-fi
-}
+GIT_PS1_SHOWCOLORHINTS=true
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_STATESEPARATOR=''
+GIT_PS1_SHOWSTASHSTATE=yes
+GIT_PS1_SHOWUNTRACKEDFILES=yes
+GIT_PS1_SHOWUPSTREAM=verbose,git
 
-export PS1='\[\e]0;\u@\h: \w\a\]\n\[\e[0;32m\]\u@\h \[\e[m\]\[\e[33m\]\w\[\e[0m\]\[\e[m\]\[\e[0;36m\] $(isgitrepo 2>&1 >/dev/null && git symbolic-ref HEAD | sed s%refs/heads/%%) $(isgitrepo 2>&1 > /dev/null && git_dirty)\[\e[m\]\r\n\$ '
+
+export PS1='\[\e]0;\u@\h: \w\a\]\n\[\e[0;32m\]\u@\h \[\e[m\]\[\e[33m\]\w\[\e[0m\]\[\e[m\]\[\e[0;36m\]$(__git_ps1)\[\e[m\]\r\n\$ '
 export EDITOR='gvim -f'
 
 export LESS='-R'
