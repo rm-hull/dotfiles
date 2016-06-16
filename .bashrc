@@ -33,7 +33,11 @@ shopt -s cmdhist    # save multi-line commands in a single hist entry
 shopt -s cdable_vars # if cd arg is not a dir, assume it is a var
 shopt -s checkwinsize # check the window size after each command
 shopt -s no_empty_cmd_completion # don't try to complete empty cmds
- 
+
+if [ -f ~/bin/sensible.bash ]; then
+   source ~/bin/sensible.bash
+fi
+
 # enable coloured man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
