@@ -226,9 +226,9 @@ autocmd FileType gitcommit DiffGitCached | wincmd p
 " All other files
 autocmd BufRead * set formatoptions=tcql nocindent comments&
 
-"set scrolloff=2
-"set sidescrolloff=15
-"set sidescroll=1
+set scrolloff=2
+set sidescrolloff=10
+set sidescroll=1
 
 " Forgot to sudo when opening a file
 cnoremap w!! w !sudo dd of=%
