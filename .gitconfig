@@ -71,15 +71,19 @@
     added = yellow
     changed = green
     untracked = cyan
-[diff]
-    # Detect copies as well as renames
-    renames = copies
 [help]
     # Automatically correct and execute mistyped commands
     autocorrect = 1
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
+    keepBackup = false
+    prompt = false
+[diff]
+    prompt = false
+    renames = copies
+    tool = p4merge
+    compactionHeuristic = true
 
 # URL shorthands
 [url "git@github.com:"]
