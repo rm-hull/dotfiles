@@ -95,9 +95,15 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-if [ $(uname) = 'Darwin' ]; then
-    . /usr/local/etc/bash_completion.d/git-completion.bash
-    . /usr/local/etc/bash_completion.d/git-prompt.sh
+if [ $(uname) = "Darwin" ]; then
+    source /usr/local/etc/bash_completion.d/git-completion.bash
+    if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+        source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+        TAB_TITLE="\[\e]0;\u@\h: \w\a\]"
+        GIT_PROMPT_THEME=Default
+        GIT_PROMPT_COMMAND_OK="${TAB_TITLE}\n${GREEN}✔ " # displays as ✔
+        GIT_PROMPT_COMMAND_FAIL="${TAB_TITLE}\n${RED}✘-_LAST_COMMAND_STATE_ " # displays as ✘-1 for exit code 1
+    fi
 fi
 
 GIT_PS1_SHOWCOLORHINTS=true
