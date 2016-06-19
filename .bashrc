@@ -103,7 +103,6 @@ TAB_TITLE="\[\e]0;\u@\h: \w\a\]"
 GIT_PROMPT_THEME=Default
 GIT_PROMPT_COMMAND_OK="${TAB_TITLE}\n${GREEN}✔ " # displays as ✔
 GIT_PROMPT_COMMAND_FAIL="${TAB_TITLE}\n${RED}✘-_LAST_COMMAND_STATE_ " # displays as ✘-1 for exit code 1
-GIT_PROMPT_ONLY_IN_REPO=1
 
 if [ $(uname) = "Darwin" ]; then
     source /usr/local/etc/bash_completion.d/git-completion.bash
