@@ -99,30 +99,18 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-TAB_TITLE="\[\e]0;\u@\h: \w\a\]"
-GIT_PROMPT_THEME=Default
-GIT_PROMPT_COMMAND_OK="${TAB_TITLE}\n${GREEN}✔ " # displays as ✔
-GIT_PROMPT_COMMAND_FAIL="${TAB_TITLE}\n${RED}✘-_LAST_COMMAND_STATE_ " # displays as ✘-1 for exit code 1
-
 if [ $(uname) = "Darwin" ]; then
     source /usr/local/etc/bash_completion.d/git-completion.bash
-    if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-        source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
-    fi
-
-else
-    source ~/.bash-git-prompt/gitprompt.sh
 fi
 
-GIT_PS1_SHOWCOLORHINTS=true
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_STATESEPARATOR=''
-GIT_PS1_SHOWSTASHSTATE=yes
-GIT_PS1_SHOWUNTRACKEDFILES=yes
-GIT_PS1_SHOWUPSTREAM=verbose,git
+source ~/.bash-git-prompt/gitprompt.sh
+TAB_TITLE="\[\e]0;\u@\h: \w\a\]"
+GIT_PROMPT_THEME=Default
+GIT_PROMPT_COMMAND_OK=""
+GIT_PROMPT_COMMAND_FAIL="${RED}✘-_LAST_COMMAND_STATE_ "
+GIT_PROMPT_START_USER="${TAB_TITLE}\n_LAST_COMMAND_INDICATOR_${GREEN}\u@\h:${NONE} ${YELLOW}\w${NONE}"
+GIT_PROMPT_START_ROOT="${GIT_PROMPT_START_USER}"
 
-
-export PS1='\[\e]0;\u@\h: \w\a\]\n\[\e[0;32m\]\u@\h \[\e[m\]\[\e[33m\]\w\[\e[0m\]\[\e[m\]\[\e[0;36m\]$(__git_ps1)\[\e[m\]\r\n\$ '
 export EDITOR='gvim -f'
 
 export LESS='-R'
@@ -131,6 +119,6 @@ export LESSOPEN='|~/.lessfilter %s'
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
-export PATH=$PATH:/usr/local/heroku/bin:/usr/local/sbin:~/bin
+export PATH=$PATH:/usr/local/sbin:~/bin
 
 uname -snrvm
