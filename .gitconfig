@@ -79,12 +79,21 @@
     # Include summaries of merged commits in newly created merge commit messages
     log = true
     keepBackup = false
+    tool = p4merge
     prompt = false
+[mergetool "p4merge"]
+    # https://gist.github.com/samsalisbury/5436108
+    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$PWD/$BASE\"" "\"$PWD/$LOCAL\""  "\"$PWD/$REMOTE\"" "\"$PWD/$MERGED\""
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
 [diff]
     prompt = false
     renames = copies
     tool = p4merge
     compactionHeuristic = true
+[difftool "p4merge"]
+    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$LOCAL\"" "\"$REMOTE\""
 
 # URL shorthands
 [url "git@github.com:"]

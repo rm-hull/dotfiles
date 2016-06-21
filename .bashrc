@@ -48,15 +48,17 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
  
 # define some colours
-GREY=$'\033[1;30m'
-RED=$'\033[1;31m'
-GREEN=$'\033[1;32m'
-YELLOW=$'\033[1;33m'
-BLUE=$'\033[1;34m'
-MAGENTA=$'\033[1;35m'
-CYAN=$'\033[1;36m'
-WHITE=$'\033[1;37m'
+GREY=$'\033[30m'
+RED=$'\033[31m'
+GREEN=$'\033[32m'
+YELLOW=$'\033[33m'
+BLUE=$'\033[34m'
+MAGENTA=$'\033[35m'
+CYAN=$'\033[36m'
+WHITE=$'\033[37m'
 NONE=$'\033[m'
+BRIGHT=$'\033[1m'
+DIM=$'\033[1m'
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -107,7 +109,7 @@ source ~/.bash-git-prompt/gitprompt.sh
 TAB_TITLE="\[\e]0;\u@\h: \w\a\]"
 GIT_PROMPT_THEME=Default
 GIT_PROMPT_COMMAND_OK=""
-GIT_PROMPT_COMMAND_FAIL="${RED}✘-_LAST_COMMAND_STATE_ "
+GIT_PROMPT_COMMAND_FAIL="${BRIGHT}${RED}✘-_LAST_COMMAND_STATE_${NONE} "
 GIT_PROMPT_START_USER="${TAB_TITLE}\n_LAST_COMMAND_INDICATOR_${GREEN}\u@\h:${NONE} ${YELLOW}\w${NONE}"
 GIT_PROMPT_START_ROOT="${GIT_PROMPT_START_USER}"
 
