@@ -123,4 +123,8 @@ export LESSOPEN='|~/.lessfilter %s'
 
 export PATH=$PATH:/usr/local/sbin:~/bin
 
-uname -snrvm
+if [ $(uname) = "Darwin" ]; then
+    archey
+else
+    uname -snrvm
+fi
