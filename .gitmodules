@@ -61,3 +61,6 @@
 [submodule ".bash-git-prompt"]
 	path = .bash-git-prompt
 	url = https://github.com/magicmonty/bash-git-prompt.git
+[submodule ".vim/bundle/vim-cljfmt"]
+	path = .vim/bundle/vim-cljfmt
+	url = https://github.com/venantius/vim-cljfmt.git
