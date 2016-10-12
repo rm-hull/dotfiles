@@ -308,3 +308,7 @@ let g:indentLine_enabled = 0
 autocmd BufRead,BufNewFile *.ylx setlocal filetype=scheme
 autocmd BufRead,BufNewFile *.asm set filetype=nasm
 autocmd BufRead,BufNewFile *.fth set filetype=forth
+
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
