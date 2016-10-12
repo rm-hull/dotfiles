@@ -1,12 +1,12 @@
 {
  :user {
   :plugins [
-    [cider/cider-nrepl "0.12.0"]
-    [lein-cljfmt "0.5.3"]
+    [cider/cider-nrepl "0.13.0"]
+    [lein-cljfmt "0.5.6"]
     [lein-pprint "1.1.2"]
     [lein-assoc "0.1.0"]
-    [lein-cloverage "1.0.6"]
-    [venantius/ultra "0.4.1"]
+    [lein-cloverage "1.0.7"]
+    [venantius/ultra "0.5.0"]
     [jonase/eastwood "0.2.3" :exclusions [org.clojure/clojure]]
     [lein-expectations "0.0.8"]
     [lein-autoexpect "1.9.0"]
