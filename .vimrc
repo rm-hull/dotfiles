@@ -312,3 +312,8 @@ autocmd BufRead,BufNewFile *.fth set filetype=forth
 if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
+
+set nocursorcolumn
+syntax sync minlines=128
+set ttyfast
+set lazyredraw
