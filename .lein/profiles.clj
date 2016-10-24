@@ -11,7 +11,8 @@
     [lein-expectations "0.0.8"]
     [lein-autoexpect "1.9.0"]
     [com.jakemccrary/lein-test-refresh "0.14.0"]
-    [lein-ancient "0.6.10"]]
+    [lein-ancient "0.6.10"]
+    [lein-nvd "0.2.3"]]
   :repl-options {
     :timeout 300000}
   :aliases {
