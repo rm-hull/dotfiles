@@ -5,7 +5,7 @@
     [lein-cljfmt "0.5.6"]
     [lein-pprint "1.1.2"]
     [lein-assoc "0.1.0"]
-    [lein-cloverage "1.0.7"]
+    [lein-cloverage "1.0.9"]
     [venantius/ultra "0.5.0"]
     [jonase/eastwood "0.2.3" :exclusions [org.clojure/clojure]]
     [lein-expectations "0.0.8"]
