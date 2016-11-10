@@ -1,0 +1,60 @@
+#!/bin/bash
+
+usage () {
+  CMD=$(basename $0)
+  echo -e "$1\n"
+  echo -e "Usage: ${CMD//-/ } [-y] BRANCH\n"
+  echo "Delete the supplied local and origin branch"
+  echo "  -y   without confirmation"
+  exit $2
+}
+
+main () {
+  export yesno=""
+  case "$1" in
+    "") usage "No branch supplied." 1 ;;
+    "-h"|"--help") usage "Don't Panic!" 0 ;;
+    "-y"|"--yes") export yesno=y; shift ;;
+  esac
+
+  for branch in $*
+  do
+      if [ "$yesno" = "" ]
+      then
+          read -p "Delete $branch locally and from origin? [y/n] " yesno
+      fi
+  
+      case $yesno in
+          [Yy]*)         ;;
+          [qQ]*) exit 99 ;;
+          *)     exit 0  ;;
+      esac
+      
+      check local  $1   && git branch -D $branch
+      check remote $1   && git push origin :$branch
+  done
+}
+
+check () {
+  case $1 in
+    local)
+      if git branch --color=never | egrep -q " $2$" ; then
+        return 0
+      else
+        echo "No local branch"
+        return 1
+      fi
+      ;;
+    remote)
+      git fetch --prune
+      if git branch -r --color=never | grep -v -- "->" | egrep -q " origin/$2$" ; then
+        return 0
+      else
+        echo "No remote branch"
+        return 1
+      fi
+      ;;
+    esac
+}
+
+main $*
