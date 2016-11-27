@@ -133,7 +133,6 @@ au Filetype less setlocal sw=2 ts=2 sts=2
 au Filetype css setlocal sw=2 ts=2 sts=2
 au Filetype sass setlocal sw=2 ts=2 sts=2
 
-autocmd BufRead,BufNewFile *.cljs setlocal filetype=clojure
 autocmd BufRead,BufNewFile *.json setfiletype json syntax=javascript
 
 " When editing a file, always jump to the last known cursor position.
