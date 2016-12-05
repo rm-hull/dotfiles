@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundle/ansi-esc.vim"]
+	path = .vim/bundle/ansi-esc.vim
+	url = https://github.com/vim-scripts/AnsiEsc.vim
