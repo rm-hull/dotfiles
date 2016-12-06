@@ -316,3 +316,5 @@ set nocursorcolumn
 syntax sync minlines=128
 set ttyfast
 set lazyredraw
+
+let g:no_drchip_menu = 1
