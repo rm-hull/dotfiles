@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/ansi-esc.vim"]
 	path = .vim/bundle/ansi-esc.vim
 	url = https://github.com/powerman/vim-plugin-AnsiEsc.git 
+[submodule ".vim/bundle/vim-ipython"]
+	path = .vim/bundle/vim-ipython
+	url = https://github.com/ivanov/vim-ipython
