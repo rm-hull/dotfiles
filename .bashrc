@@ -121,7 +121,7 @@ export LESSOPEN='|~/.lessfilter %s'
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
-export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:~/bin
+export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:~/bin:/opt/activator/bin
 export TZ=:/etc/localtime
 
 if [ $(uname) = "Darwin" ]; then
@@ -130,8 +130,9 @@ else
     uname -snrvm
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '~/google-cloud-sdk/path.bash.inc' ]; then source '~/google-cloud-sdk/path.bash.inc'; fi
+if [ -f ~/google-cloud-sdk/path.bash.inc ]; then
+    source ~/google-cloud-sdk/path.bash.inc
+    source ~/google-cloud-sdk/completion.bash.inc
+    source <(kubectl completion bash)
+fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '~/google-cloud-sdk/completion.bash.inc' ]; then source '~/google-cloud-sdk/completion.bash.inc'; fi
