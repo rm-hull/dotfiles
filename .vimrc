@@ -278,7 +278,7 @@ vnoremap > >gv
 autocmd BufRead * set formatoptions=tcql nocindent comments&
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType coffeescript,markdown,sql,c,cpp,java,php,haskell,javascript,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType lua,coffeescript,markdown,sql,c,cpp,java,php,haskell,javascript,js,python,twig,xml,json,yml,scala,clojure,clojurescript,groovy autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
