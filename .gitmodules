@@ -70,3 +70,6 @@
 [submodule ".vim/bundle/vim-ipython"]
 	path = .vim/bundle/vim-ipython
 	url = https://github.com/ivanov/vim-ipython
+[submodule ".vim/bundle/wmgraphviz"]
+	path = .vim/bundle/wmgraphviz
+	url = https://github.com/wannesm/wmgraphviz.vim
