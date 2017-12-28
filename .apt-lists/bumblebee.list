@@ -1,0 +1,2 @@
+# deb http://ppa.launchpad.net/bumblebee/stable/ubuntu trusty main # disabled on upgrade to wily
+# deb-src http://ppa.launchpad.net/bumblebee/stable/ubuntu trusty main # disabled on upgrade to wily

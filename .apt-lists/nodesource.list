@@ -1,2 +1,1 @@
-deb https://deb.nodesource.com/node_7.x yakkety main
-deb-src https://deb.nodesource.com/node_7.x yakkety main
+deb https://deb.nodesource.com/node_8.x artful main
