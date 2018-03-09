@@ -73,3 +73,6 @@
 [submodule ".vim/bundle/wmgraphviz"]
 	path = .vim/bundle/wmgraphviz
 	url = https://github.com/wannesm/wmgraphviz.vim
+[submodule ".vim/bundle/vim-css3-syntax"]
+	path = .vim/bundle/vim-css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax.git
