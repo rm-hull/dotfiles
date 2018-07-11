@@ -1,6 +1,7 @@
 [user]
     name = Richard Hull
     email = rm_hull@yahoo.co.uk
+    signingkey = FFF988E6D81073FA
 [alias]
     # View abbreviated SHA, description, and history graph of the latest 20 commits
     l = log --pretty=oneline -n 20 --graph --abbrev-commit
