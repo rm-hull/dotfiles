@@ -136,3 +136,13 @@ if [ -f ~/google-cloud-sdk/path.bash.inc ]; then
     source <(kubectl completion bash)
 fi
 
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+export PIPENV_VENV_IN_PROJECT=1
+eval "$(pipenv --completion)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
