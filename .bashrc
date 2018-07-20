@@ -137,7 +137,7 @@ if [ -f ~/google-cloud-sdk/path.bash.inc ]; then
 fi
 
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 export PIPENV_VENV_IN_PROJECT=1
 eval "$(pipenv --completion)"
