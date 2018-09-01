@@ -1,1 +1,1 @@
-deb http://download.virtualbox.org/virtualbox/debian artful contrib
+deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib

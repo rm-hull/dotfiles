@@ -1,1 +1,1 @@
-deb https://download.01.org/gfx/ubuntu/17.04/main zesty main
+deb https://download.01.org/gfx/ubuntu/17.04/main zesty main #Intel Graphics drivers disabled on upgrade to bionic

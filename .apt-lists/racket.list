@@ -1,1 +1,2 @@
-deb http://ppa.launchpad.net/plt/racket/ubuntu artful main
+deb http://ppa.launchpad.net/plt/racket/ubuntu artful main # disabled on upgrade to zesty disabled on upgrade to artful
+deb-src http://ppa.launchpad.net/plt/racket/ubuntu artful main # disabled on upgrade to zesty disabled on upgrade to artful
