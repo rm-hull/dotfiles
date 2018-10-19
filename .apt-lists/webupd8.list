@@ -1,2 +1,2 @@
-deb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu artful main
-deb-src http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu artful main
+deb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu cosmic main
+# deb-src http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu artful main # disabled on upgrade to cosmic
