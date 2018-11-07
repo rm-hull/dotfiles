@@ -121,7 +121,7 @@ export LESSOPEN='|~/.lessfilter %s'
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
-export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:~/bin:/opt/activator/bin
+export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:~/bin:~/.local/bin:/opt/activator/bin
 export TZ=:/etc/localtime
 
 if [ $(uname) = "Darwin" ]; then
