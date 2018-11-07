@@ -318,3 +318,4 @@ set ttyfast
 set lazyredraw
 
 let g:no_drchip_menu = 1
+let g:pymode_python = 'python3'
