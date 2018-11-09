@@ -1,2 +1,1 @@
-deb http://ppa.launchpad.net/plt/racket/ubuntu bionic main
-# deb-src http://ppa.launchpad.net/plt/racket/ubuntu artful main
+deb http://ppa.launchpad.net/plt/racket/ubuntu cosmic main
