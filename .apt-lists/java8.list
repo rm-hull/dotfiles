@@ -1,2 +1,1 @@
 deb http://ppa.launchpad.net/webupd8team/java/ubuntu cosmic main
-# deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu cosmic main # disabled on upgrade to cosmic
