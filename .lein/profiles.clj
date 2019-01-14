@@ -1,18 +1,17 @@
 {
  :user {
   :plugins [
-    [cider/cider-nrepl "0.15.1"]
-    [lein-cljfmt "0.5.7"]
-    [lein-pprint "1.1.2"]
+    [cider/cider-nrepl "0.18.0"]
+    [lein-cljfmt "0.6.1"]
+    [lein-pprint "1.2.0"]
     [lein-assoc "0.1.0"]
-    [lein-cloverage "1.0.9"]
-    [venantius/ultra "0.5.1"]
+    [lein-cloverage "1.0.13"]
     [jonase/eastwood "0.2.5" :exclusions [org.clojure/clojure]]
     [lein-expectations "0.0.8"]
     [lein-autoexpect "1.9.0"]
     [com.jakemccrary/lein-test-refresh "0.14.0"]
-    [lein-ancient "0.6.14"]
-    [lein-nvd "0.4.0"]]
+    [lein-ancient "0.6.15"]
+    [lein-nvd "0.6.0"]]
   :repl-options {
     :timeout 300000}
   :aliases {
