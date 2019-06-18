@@ -5,6 +5,14 @@ git submodule init
 git submodule update
 git submodule foreach git pull origin master
 
+cd .pyenv
+git pull origin master
+git submodule init
+git submodule update
+git submodule foreach git pull origin master
+cd ..
+
+
 function doIt() {
     rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
         --exclude "README.md" --exclude "LICENSE-MIT.txt" -av --no-perms . ~
