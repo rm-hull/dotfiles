@@ -65,7 +65,7 @@ set shiftwidth=4        " default shiftwidth of 4 spaces
 set softtabstop=4
 set tildeop             " allow tilde (~) to act as an operator -- ~w, etc.
 set showcmd             " display incomplete commands
-set tags=tags;/
+set tags=tags;./.git/tags;/
 
 set wildignore=*.o,*.class,~*,*.swp,*/.git/*,*/.svn/*,*/target/*
 set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all.
