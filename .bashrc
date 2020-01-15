@@ -152,6 +152,8 @@ if [ -f ~/.fabrc ]; then
     source ~/.fabrc
 fi
 
+export PATH="$HOME/.tfenv/bin:$PATH"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
