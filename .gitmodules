@@ -82,3 +82,6 @@
 [submodule ".nvm"]
 	path = .nvm
 	url = https://github.com/creationix/nvm.git
+[submodule ".vim/bundle/vim-terraform"]
+	path = .vim/bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
