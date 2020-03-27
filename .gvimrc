@@ -1,6 +1,7 @@
+set lines=65 columns=180
 set cursorline
 set go=egimrtT
-set guifont=Monospace\ 8
+set guifont=Monospace\ 10
 set mousehide         " Hide the mouse when typing text
 map <S-Insert> <MiddleMouse> " Make shift-insert work like in Xterm
 map! <S-Insert> <MiddleMouse>
