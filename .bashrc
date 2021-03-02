@@ -9,8 +9,18 @@
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
 
-EDITOR=vim
-VISUAL=gvim
+EDITOR="$(command -v vim)"
+FCEDIT=vim
+
+# we have gvim, not in an SSH term, and the X11 display number is under 10
+if command -v gvim >/dev/null 2>&1 \
+&& [ "$SSH_TTY$DISPLAY" = "${DISPLAY#*:[1-9][0-9]}" ]; then
+  export VISUAL="$(command -v gvim) -f"
+  SUDO_EDITOR="$VISUAL"
+else
+  SUDO_EDITOR="$EDITOR"
+fi
+
 PAGER='less -i'
 
 # append to the history file, don't overwrite it
@@ -112,8 +122,6 @@ GIT_PROMPT_COMMAND_OK=""
 GIT_PROMPT_COMMAND_FAIL="${BRIGHT}${RED}✘-_LAST_COMMAND_STATE_${NONE} "
 GIT_PROMPT_START_USER="${TAB_TITLE}\n_LAST_COMMAND_INDICATOR_${GREEN}\u@\h:${NONE} ${YELLOW}\w${NONE}"
 GIT_PROMPT_START_ROOT="${GIT_PROMPT_START_USER}"
-
-export EDITOR='gvim -f'
 
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
