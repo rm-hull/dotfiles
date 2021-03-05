@@ -112,7 +112,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 if [ $(uname) = "Darwin" ]; then
-    source /usr/local/etc/bash_completion.d/git-completion.bash
+    source /opt/homebrew/etc/bash_completion.d/git-completion.bash
 fi
 
 source ~/.bash-git-prompt/gitprompt.sh
@@ -129,7 +129,7 @@ export LESSOPEN='|~/.lessfilter %s'
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
-export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:~/bin:~/.local/bin:/opt/activator/bin
+export PATH=$PATH:/opt/homebrew/bin:~/bin:~/.local/bin
 export TZ=:/etc/localtime
 
 if [ $(uname) = "Darwin" ]; then
@@ -146,6 +146,7 @@ fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PIPENV_VENV_IN_PROJECT=1
 eval "$(pipenv --completion)"
