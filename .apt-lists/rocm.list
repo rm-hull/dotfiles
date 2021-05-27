@@ -1,1 +1,1 @@
-deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main
+deb [arch=amd64] http://repo.radeon.com/rocm/apt/debian/ xenial main 

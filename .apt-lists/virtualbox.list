@@ -1,1 +1,1 @@
-deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian eoan contrib
+deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian hirsute contrib
