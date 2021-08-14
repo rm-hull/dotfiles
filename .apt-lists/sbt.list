@@ -1,1 +1,1 @@
-deb https://dl.bintray.com/sbt/debian /
+deb https://repo.scala-sbt.org/scalasbt/debian all main
