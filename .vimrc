@@ -319,3 +319,6 @@ set lazyredraw
 
 let g:no_drchip_menu = 1
 let g:pymode_python = 'python3'
+
+highlight LineNr ctermfg=darkgrey
+highlight LineNr guifg=lightgrey
