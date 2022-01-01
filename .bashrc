@@ -166,4 +166,9 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 source "$HOME/.cargo/env"
+
+if command -v mcfly 1>/dev/null 2>&1; then
+    eval "$(mcfly init bash)"
+fi
