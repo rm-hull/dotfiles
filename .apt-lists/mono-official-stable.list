@@ -1,1 +1,1 @@
-deb [arch=amd64] https://download.mono-project.com/repo/ubuntu stable-focal main # disabled on upgrade to hirsute
+deb [arch=amd64] https://download.mono-project.com/repo/ubuntu stable-focal main
