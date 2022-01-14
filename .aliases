@@ -29,7 +29,6 @@ fi
 
 
 # List all files colorized in long format
-alias ls=exa
 alias l="ls -l ${colorflag}"
 
 # List all files colorized in long format, including dot files
@@ -41,8 +40,7 @@ alias l='ls -CF'
 # List only directories
 alias lsd='ls -l ${colorflag} | grep "^d"'
 
-# Always use color output for `ls`
-alias ls="command ls ${colorflag}"
+alias ls="exa"
 
 alias grep='grep ${colorflag}'
 alias fgrep='fgrep ${colorflag}'
