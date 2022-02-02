@@ -149,7 +149,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PIPENV_VENV_IN_PROJECT=1
-eval "$(pipenv --completion)"
+eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
