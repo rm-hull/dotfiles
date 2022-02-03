@@ -112,7 +112,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 if [ $(uname) = "Darwin" ]; then
-    source /opt/homebrew/etc/bash_completion.d/git-completion.bash
+    source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
 
 source ~/.bash-git-prompt/gitprompt.sh
