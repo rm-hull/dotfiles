@@ -130,7 +130,7 @@ export LESSOPEN='|~/.lessfilter %s'
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:~/bin:~/.local/bin:~/go/bin:$PATH
-export TZ=:/etc/localtime
+export TZ=/etc/localtime
 
 if [ $(uname) = "Darwin" ]; then
     archey
