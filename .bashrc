@@ -111,6 +111,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+export PATH=/opt/homebrew/bin:/usr/local/bin:~/bin:~/.local/bin:~/go/bin:$PATH
 if [ $(uname) = "Darwin" ]; then
     source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
@@ -129,7 +130,6 @@ export LESSOPEN='|~/.lessfilter %s'
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
-export PATH=/opt/homebrew/bin:/usr/local/bin:~/bin:~/.local/bin:~/go/bin:$PATH
 export TZ=/etc/localtime
 
 if [ $(uname) = "Darwin" ]; then
