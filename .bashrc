@@ -91,6 +91,11 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
+export PATH=/opt/homebrew/bin:$PATH
+if [ -f ~/.homebrew ]; then
+    . ~/.homebrew
+fi
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -100,10 +105,6 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-if [ -f ~/.homebrew ]; then
-    . ~/.homebrew
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -111,7 +112,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=/opt/homebrew/bin:/usr/local/bin:~/bin:~/.local/bin:~/go/bin:$PATH
+export PATH=/usr/local/bin:~/bin:~/.local/bin:~/go/bin:$PATH
 if [ $(uname) = "Darwin" ]; then
     source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
