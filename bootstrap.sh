@@ -2,7 +2,7 @@
 cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 git submodule init
-git submodule update
+git submodule update --init --recursive
 git submodule foreach git pull origin master
 
 cd .pyenv
