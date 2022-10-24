@@ -1,0 +1,43 @@
+set nocompatible
+set wildmenu
+set ttyfast
+set ro
+set nomodifiable
+set ignorecase
+set smartcase
+set hlsearch
+set nowrapscan
+
+scriptencoding utf-8
+set encoding=utf-8 nobomb
+set binary
+set noeol
+set modeline
+set modelines=4
+
+set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
+set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
+set virtualedit=onemore         " allow for cursor beyond last character
+
+set nu
+set nowrap
+set laststatus=2        " always display a status line at the bottom of window
+set ruler               " display the current line and col at all times
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
+set mouse=a
+
+syntax on
+syn match NumberVal " -\?\d\+.\?\d\+ "
+syn match TrueVal " t "
+syn match FalseVal " f "
+syn match Time " \d\{2}:\d\{2}:\d\{2}\(.\?\d\+\)\?\(+\d\d\)\?"
+syn match Date " \d\{4}-\d\{2}-\d\{2}"
+syn match NullVal " ¤ "
+syn match NullVal " NULL "
+
+hi def NullVal ctermfg=242
+hi def NumberVal ctermfg=229
+hi def FalseVal ctermfg=88
+hi def TrueVal ctermfg=64
+hi def Time ctermfg=111
+hi def Date ctermfg=111
