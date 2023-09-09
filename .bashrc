@@ -114,6 +114,7 @@ fi
 
 export PATH=/usr/local/bin:~/bin:~/.local/bin:~/go/bin:$PATH
 if [ $(uname) = "Darwin" ]; then
+    export PATH="~/Library/Application Support/JetBrains/Toolbox/scripts":$PATH
     source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
 
