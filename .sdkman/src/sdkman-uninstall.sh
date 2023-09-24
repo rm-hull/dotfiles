@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-#   Copyright 2017 Marco Vermeulen
+#   Copyright 2021 Marco Vermeulen
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 #   limitations under the License.
 #
 
-function __sdk_uninstall {
+function __sdk_uninstall() {
 	local candidate version current
 
 	candidate="$1"
@@ -24,13 +24,15 @@ function __sdk_uninstall {
 	__sdkman_check_candidate_present "$candidate" || return 1
 	__sdkman_check_version_present "$version" || return 1
 
-	current=$(readlink "${SDKMAN_CANDIDATES_DIR}/${candidate}/current" | sed "s_${SDKMAN_CANDIDATES_DIR}/${candidate}/__g")
-	if [[ -h "${SDKMAN_CANDIDATES_DIR}/${candidate}/current" && "$version" == "$current" ]]; then
+	current=$(readlink "${SDKMAN_CANDIDATES_DIR}/${candidate}/current" | sed "s!${SDKMAN_CANDIDATES_DIR}/${candidate}/!!g")
+	if [[ -L "${SDKMAN_CANDIDATES_DIR}/${candidate}/current" && "$version" == "$current" ]]; then
 		echo ""
-		__sdkman_echo_green "Unselecting ${candidate} ${version}..."
+		__sdkman_echo_green "Deselecting ${candidate} ${version}..."
 		unlink "${SDKMAN_CANDIDATES_DIR}/${candidate}/current"
 	fi
+
 	echo ""
+
 	if [ -d "${SDKMAN_CANDIDATES_DIR}/${candidate}/${version}" ]; then
 		__sdkman_echo_green "Uninstalling ${candidate} ${version}..."
 		rm -rf "${SDKMAN_CANDIDATES_DIR}/${candidate}/${version}"

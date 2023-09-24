@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-#   Copyright 2017 Marco Vermeulen
+#   Copyright 2021 Marco Vermeulen
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 #   limitations under the License.
 #
 
-function __sdk_help {
+function __sdk_help() {
 	__sdkman_echo_no_colour ""
 	__sdkman_echo_no_colour "Usage: sdk <command> [candidate] [version]"
 	__sdkman_echo_no_colour "       sdk offline <enable|disable>"
@@ -26,16 +26,22 @@ function __sdk_help {
 	__sdkman_echo_no_colour "       uninstall or rm   <candidate> <version>"
 	__sdkman_echo_no_colour "       list      or ls   [candidate]"
 	__sdkman_echo_no_colour "       use       or u    <candidate> <version>"
+	__sdkman_echo_no_colour "       config"
 	__sdkman_echo_no_colour "       default   or d    <candidate> [version]"
+	__sdkman_echo_no_colour "       home      or h    <candidate> <version>"
+	__sdkman_echo_no_colour "       env       or e    [init|install|clear]"
 	__sdkman_echo_no_colour "       current   or c    [candidate]"
 	__sdkman_echo_no_colour "       upgrade   or ug   [candidate]"
 	__sdkman_echo_no_colour "       version   or v"
-	__sdkman_echo_no_colour "       broadcast or b"
-	__sdkman_echo_no_colour "       help      or h"
+	__sdkman_echo_no_colour "       help"
 	__sdkman_echo_no_colour "       offline           [enable|disable]"
-	__sdkman_echo_no_colour "       selfupdate        [force]"
+
+	if [[ "$sdkman_selfupdate_feature" == "true" ]]; then
+		__sdkman_echo_no_colour "       selfupdate        [force]"
+	fi
+
 	__sdkman_echo_no_colour "       update"
-	__sdkman_echo_no_colour "       flush             <broadcast|archives|temp>"
+	__sdkman_echo_no_colour "       flush             [tmp|metadata|version]"
 	__sdkman_echo_no_colour ""
 	__sdkman_echo_no_colour "   candidate  :  the SDK to install: groovy, scala, grails, gradle, kotlin, etc."
 	__sdkman_echo_no_colour "                 use list command for comprehensive list of candidates"

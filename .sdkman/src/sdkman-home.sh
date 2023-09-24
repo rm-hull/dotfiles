@@ -16,13 +16,14 @@
 #   limitations under the License.
 #
 
-function __sdk_use() {
-	local candidate version install
+function __sdk_home() {
+	local candidate version
 
 	candidate="$1"
 	version="$2"
 	__sdkman_check_version_present "$version" || return 1
 	__sdkman_check_candidate_present "$candidate" || return 1
+	__sdkman_determine_version "$candidate" "$version" || return 1
 
 	if [[ ! -d "${SDKMAN_CANDIDATES_DIR}/${candidate}/${version}" ]]; then
 		echo ""
@@ -34,26 +35,5 @@ function __sdk_use() {
 		return 1
 	fi
 
-	# Just update the *_HOME and PATH for this shell.
-	__sdkman_set_candidate_home "$candidate" "$version"
-
-	if [[ $PATH =~ ${SDKMAN_CANDIDATES_DIR}/${candidate}/([^/]+) ]]; then
-		local matched_version
-
-		if [[ "$zsh_shell" == "true" ]]; then
-			matched_version=${match[1]}
-		else
-			matched_version=${BASH_REMATCH[1]}
-		fi
-
-		export PATH=${PATH//${SDKMAN_CANDIDATES_DIR}\/${candidate}\/${matched_version}/${SDKMAN_CANDIDATES_DIR}\/${candidate}\/${version}}
-	fi
-
-	if [[ ! (-L "${SDKMAN_CANDIDATES_DIR}/${candidate}/current" || -d "${SDKMAN_CANDIDATES_DIR}/${candidate}/current") ]]; then
-		__sdkman_echo_green "Setting ${candidate} version ${version} as default."
-		__sdkman_link_candidate_version "$candidate" "$version"
-	fi
-
-	echo ""
-	__sdkman_echo_green "Using ${candidate} version ${version} in this shell."
+	echo -n "${SDKMAN_CANDIDATES_DIR}/${candidate}/${version}"
 }

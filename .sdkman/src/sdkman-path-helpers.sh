@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-#   Copyright 2017 Marco Vermeulen
+#   Copyright 2021 Marco Vermeulen
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 #   limitations under the License.
 #
 
-function __sdkman_path_contains {
+function __sdkman_path_contains() {
 	local candidate exists
 
 	candidate="$1"
@@ -28,7 +28,7 @@ function __sdkman_path_contains {
 	fi
 }
 
-function __sdkman_add_to_path {
+function __sdkman_add_to_path() {
 	local candidate present
 
 	candidate="$1"
@@ -39,7 +39,7 @@ function __sdkman_add_to_path {
 	fi
 }
 
-function __sdkman_set_candidate_home {
+function __sdkman_set_candidate_home() {
 	local candidate version upper_candidate
 
 	candidate="$1"
@@ -49,14 +49,14 @@ function __sdkman_set_candidate_home {
 	export "${upper_candidate}_HOME"="${SDKMAN_CANDIDATES_DIR}/${candidate}/${version}"
 }
 
-function __sdkman_export_candidate_home {
+function __sdkman_export_candidate_home() {
 	local candidate_name="$1"
 	local candidate_dir="$2"
 	local candidate_home_var="$(echo ${candidate_name} | tr '[:lower:]' '[:upper:]')_HOME"
 	export $(echo "$candidate_home_var")="$candidate_dir"
 }
 
-function __sdkman_determine_candidate_bin_dir {
+function __sdkman_determine_candidate_bin_dir() {
 	local candidate_dir="$1"
 	if [[ -d "${candidate_dir}/bin" ]]; then
 		echo "${candidate_dir}/bin"
@@ -65,7 +65,7 @@ function __sdkman_determine_candidate_bin_dir {
 	fi
 }
 
-function __sdkman_prepend_candidate_to_path {
+function __sdkman_prepend_candidate_to_path() {
 	local candidate_dir candidate_bin_dir
 
 	candidate_dir="$1"
@@ -74,15 +74,16 @@ function __sdkman_prepend_candidate_to_path {
 	unset CANDIDATE_BIN_DIR
 }
 
-function __sdkman_link_candidate_version {
+function __sdkman_link_candidate_version() {
 	local candidate version
 
 	candidate="$1"
 	version="$2"
 
 	# Change the 'current' symlink for the candidate, hence affecting all shells.
-	if [[ -h "${SDKMAN_CANDIDATES_DIR}/${candidate}/current" || -d "${SDKMAN_CANDIDATES_DIR}/${candidate}/current" ]]; then
-		rm -f "${SDKMAN_CANDIDATES_DIR}/${candidate}/current"
+	if [[ -L "${SDKMAN_CANDIDATES_DIR}/${candidate}/current" || -d "${SDKMAN_CANDIDATES_DIR}/${candidate}/current" ]]; then
+		rm -rf "${SDKMAN_CANDIDATES_DIR}/${candidate}/current"
 	fi
-	ln -s "${SDKMAN_CANDIDATES_DIR}/${candidate}/${version}" "${SDKMAN_CANDIDATES_DIR}/${candidate}/current"
+
+	ln -s "${version}" "${SDKMAN_CANDIDATES_DIR}/${candidate}/current"
 }
