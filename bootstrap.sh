@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cd "$(dirname "${BASH_SOURCE}")"
-git pull origin master
+git pull origin main
 git submodule init
 git submodule update --init --recursive
 git submodule foreach git pull origin master
