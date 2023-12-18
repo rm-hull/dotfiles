@@ -174,5 +174,5 @@ source "$HOME/.cargo/env"
 if command -v mcfly 1>/dev/null 2>&1; then
     eval "$(mcfly init bash)"
 fi
-
+export GPG_TTY=$(tty)
 export SBT_OPTS="-Xmx8G -Xss2M -Duser.timezone=GMT"
