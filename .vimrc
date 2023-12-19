@@ -42,6 +42,7 @@ set history=1000                " Store a ton of history (default is 20)
 "set spell                       " spell checking on
 "setlocal spell spelllang=en_gb
 set nu
+highlight LineNr ctermfg=DarkGrey
 set selectmode=mouse
 set fileformat=unix     " Zap any ^M characters
 set autowrite           " write file on :next, :make, :tag, etc.

@@ -100,12 +100,7 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
     alias "$method"="lwp-request -m '$method'"
 done
 
-if [ x"$DISPLAY" = x ] && [ $(uname) != 'Darwin' ]; then
-    alias vi="vim"
-else
-    alias vi="gvim"
-fi
-alias luke="java -jar /usr/lib/java/luke-4.3.1-jar-with-dependencies.jar"
+alias vi="vim"
 
 alias ghci="ghci-color"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
