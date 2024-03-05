@@ -7,7 +7,12 @@
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
+unset HISTFILE
+HISTFILE=~/.bash_history
+HISTIGNORE="&:ls:vi:bg:fg:history"
 HISTCONTROL=ignoredups:ignorespace
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 EDITOR="$(command -v vim)"
 FCEDIT=vim
@@ -27,19 +32,16 @@ PAGER='less -i'
 shopt -s histappend
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 shopt -s histappend # Append to the Bash history file, rather than overwriting it
+shopt -s lithist    # save multi-line commands with newlines
+shopt -s cmdhist    # save multi-line commands in a single hist entry
 shopt -s extglob    # extended pattern matching features
 shopt -s cdspell    # correct dir spelling errors on cd
-shopt -s lithist    # save multi-line commands with newlines
 shopt -s autocd     # if a command is a dir name, cd to it
 shopt -s checkjobs  # print warning if jobs are running on shell exit
 shopt -s dirspell   # correct dir spelling errors on completion
 shopt -s globstar   # ** matches all files, dirs and subdirs
-shopt -s cmdhist    # save multi-line commands in a single hist entry
 shopt -s cdable_vars # if cd arg is not a dir, assume it is a var
 shopt -s checkwinsize # check the window size after each command
 shopt -s no_empty_cmd_completion # don't try to complete empty cmds
@@ -171,8 +173,11 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 source "$HOME/.cargo/env"
 
-if command -v mcfly 1>/dev/null 2>&1; then
+if command -v fzf 1>/dev/null 2>&1; then
+    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+elif command -v mcfly 1>/dev/null 2>&1; then
     eval "$(mcfly init bash)"
 fi
+
 export GPG_TTY=$(tty)
 export SBT_OPTS="-Xmx8G -Xss2M -Duser.timezone=GMT"
