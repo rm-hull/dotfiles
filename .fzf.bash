@@ -1,10 +1,10 @@
-if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+if [[ -d /usr/share/doc/fzf ]]; then
+  source "/usr/share/doc/fzf/examples/key-bindings.bash"
+  source "/usr/share/bash-completion/completions/fzf"
+elif [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
   source "/opt/homebrew/opt/fzf/shell/completion.bash"
   source "/opt/homebrew/opt/fzf/shell/key-bindings.bash"
-elif [[ -f /usr/share/doc/fzf ]]; then
-  source "/usr/share/doc/fzf/examples/key-bindings.bash"
-  source "/usr/share/bash-completion/completions/fzf"
 fi
 
 export FZF_CTRL_T_OPTS="
