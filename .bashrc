@@ -174,7 +174,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 source "$HOME/.cargo/env"
 
 if command -v fzf 1>/dev/null 2>&1; then
-    eval "$(fzf --bash)"
+    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 elif command -v mcfly 1>/dev/null 2>&1; then
     eval "$(mcfly init bash)"
 fi
