@@ -40,7 +40,7 @@ alias l='ls -CF'
 # List only directories
 alias lsd='ls -l ${colorflag} | grep "^d"'
 
-alias ls="exa"
+alias ls="eza --git"
 
 alias grep='grep ${colorflag}'
 alias fgrep='fgrep ${colorflag}'
