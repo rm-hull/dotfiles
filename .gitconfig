@@ -78,7 +78,16 @@
     untracked = cyan
 [help]
     # Automatically correct and execute mistyped commands
-    autocorrect = 1
+    autocorrect = prompt
+[commit]
+    verbose = true
+[rerere]
+    enabled = true
+    autoupdate = true
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
@@ -86,19 +95,14 @@
     tool = p4merge
     prompt = false
     conflictstyle = diff3
-[mergetool "p4merge"]
-    # https://gist.github.com/samsalisbury/5436108
-    cmd = p4merge.sh "\"$PWD/$BASE\"" "\"$PWD/$LOCAL\""  "\"$PWD/$REMOTE\"" "\"$PWD/$MERGED\""
-    keepTemporaries = false
-    trustExitCode = false
-    keepBackup = false
 [diff]
+    algorithm = histogram
     colorMoved = default
+    mnemonicPrefix = true
     prompt = false
     renames = copies
     compactionHeuristic = true
-[difftool "p4merge"]
-    cmd = p4merge.sh "\"$LOCAL\"" "\"$REMOTE\""
+
 
 # URL shorthands
 [url "git@github.com:"]
@@ -117,7 +121,15 @@
 [push]
     default = simple
 	autoSetupRemote = true
+    followTags = true
+[fetch]
+    prune = true
+    pruneTags = true
+    followTags = true
+[branch]
+    sort = -committerdate
 [init]
+    defaultBranch = main
     templatedir = ~/.git_template
 [filter "lfs"]
     clean = git-lfs clean -- %f
