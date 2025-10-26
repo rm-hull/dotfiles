@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# ANSI colors
+RED="\033[31m"
+GREEN="\033[32m"
+YELLOW="\033[33m"
+BLUE="\033[34m"
+BOLD="\033[1m"
+RESET="\033[0m"
+
+branch="${1:-}"
+base="${2:-main}"
+
+if [ -z "$branch" ]; then
+  echo -e "${RED}Usage:${RESET} git fb <branch> [base]"
+  exit 1
+fi
+
+# Ensure we're inside a git repository
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo -e "${RED}${BOLD}ERROR:${RESET} not inside a Git repository."
+  exit 1
+fi
+
+echo -e "${BLUE}Fetching remote info...${RESET}"
+git fetch origin >/dev/null 2>&1 || true
+
+# Check for local branch
+if git show-ref --verify --quiet "refs/heads/$branch"; then
+  # Check for unpushed commits
+  if git cherry "origin/$branch" "$branch" >/dev/null 2>&1 && [ -n "$(git cherry "origin/$branch" "$branch")" ]; then
+    echo -e "${YELLOW}${BOLD}WARNING:${RESET} branch '${BOLD}$branch${RESET}' has unpushed commits."
+    read -p "Are you sure you want to delete it? [y/N] " confirm
+    case "$confirm" in
+      [yY][eE][sS]|[yY])
+        echo -e "${BLUE}Deleting local branch...${RESET}"
+        ;;
+      *)
+        echo -e "${RED}${BOLD}ABORTED!${RESET}"
+        exit 1
+        ;;
+    esac
+  fi
+  git branch -D "$branch" 2>/dev/null || true
+fi
+
+# Check for remote branch
+if git ls-remote --exit-code origin "$branch" >/dev/null 2>&1; then
+  echo -e "${BLUE}Deleting remote branch 'origin/$branch'...${RESET}"
+  git push origin --delete "$branch" >/dev/null 2>&1 || true
+fi
+
+# Verify base branch exists (locally or remotely)
+if ! git show-ref --verify --quiet "refs/heads/$base" && ! git show-ref --verify --quiet "refs/remotes/origin/$base"; then
+  echo -e "${YELLOW}Base branch '$base' not found locally or on origin.${RESET}"
+  if [ "$base" = "main" ] && git show-ref --verify --quiet "refs/heads/master"; then
+    echo -e "${BLUE}Falling back to 'master'.${RESET}"
+    base="master"
+  else
+    echo -e "${RED}${BOLD}ERROR:${RESET} base branch '$base' does not exist."
+    exit 1
+  fi
+fi
+
+echo -e "${BLUE}Creating fresh branch '${BOLD}$branch${RESET}' from '${BOLD}$base${RESET}'...${RESET}"
+git checkout -B "$branch" "$base" >/dev/null 2>&1
+
+echo -e "${BLUE}Pushing new branch to origin...${RESET}"
+git push -u origin "$branch" >/dev/null 2>&1
+
+echo -e "${GREEN}✔ Branch '${BOLD}$branch${RESET}${GREEN}' reset from '${BOLD}$base${RESET}${GREEN}' and pushed fresh.${RESET}"
