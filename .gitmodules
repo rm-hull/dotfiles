@@ -16,9 +16,6 @@
 [submodule ".vim/bundle/cypher-vim-syntax"]
 	path = .vim/bundle/cypher-vim-syntax
 	url = https://github.com/neo4j-contrib/cypher-vim-syntax.git
-[submodule ".vim/bundle/python-mode"]
-	path = .vim/bundle/python-mode
-	url = https://github.com/python-mode/python-mode.git
 [submodule ".vim/bundle/pipe2eval"]
 	path = .vim/bundle/pipe2eval
 	url = https://github.com/zweifisch/pipe2eval.git
@@ -88,3 +85,6 @@
 [submodule ".tfenv"]
 	path = .tfenv
 	url = https://github.com/tfutils/tfenv.git
+[submodule ".vim/bundle/python-mode"]
+	path = .vim/bundle/python-mode
+	url = https://github.com/python-mode/python-mode.git
