@@ -41,6 +41,9 @@ bind "set completion-map-case on"
 # Display matches for ambiguous patterns at first tab press
 bind "set show-all-if-ambiguous on"
 
+# Immediately add a trailing slash when autocompleting symlinks to directories
+bind "set mark-symlinked-directories on"
+
 ## SANE HISTORY DEFAULTS ##
 
 # Append to the history file, don't overwrite it
@@ -97,4 +100,3 @@ shopt -s cdable_vars
 # export projects="$HOME/projects"
 # export documents="$HOME/Documents"
 # export dropbox="$HOME/Dropbox"
-

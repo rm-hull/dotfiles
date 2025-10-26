@@ -7,7 +7,6 @@
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
-unset HISTFILE
 HISTFILE=~/.bash_history
 HISTIGNORE="&:ls:vi:bg:fg:history"
 HISTCONTROL=ignoredups:ignorespace
@@ -30,7 +29,7 @@ PAGER='less -i'
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 
 
 shopt -s histappend # Append to the Bash history file, rather than overwriting it
@@ -112,13 +111,16 @@ fi
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
+    shopt -s progcomp
 fi
 
-export PATH=/usr/local/bin:~/bin:~/.local/bin:~/go/bin:$PATH
+export PATH=$PYENV_ROOT/bin:$HOME/.tfenv/bin:/usr/local/bin:~/bin:~/.local/bin:~/go/bin:$PATH
 if [ $(uname) = "Darwin" ]; then
     export PATH="~/Library/Application Support/JetBrains/Toolbox/scripts":$PATH
     source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
+__git_complete fb _git_checkout
+__git_complete cullbranch _git_checkout
 
 source ~/.bash-git-prompt/gitprompt.sh
 TAB_TITLE="\[\e]0;\u@\h: \w\a\]"
@@ -153,7 +155,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
@@ -161,11 +162,6 @@ fi
 export PIPENV_VENV_IN_PROJECT=1
 eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
 
-if [ -f ~/.fabrc ]; then
-    source ~/.fabrc
-fi
-
-export PATH="$HOME/.tfenv/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -180,4 +176,3 @@ elif command -v mcfly 1>/dev/null 2>&1; then
 fi
 
 export GPG_TTY=$(tty)
-export SBT_OPTS="-Xmx8G -Xss2M -Duser.timezone=GMT"
