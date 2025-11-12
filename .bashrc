@@ -118,6 +118,8 @@ export PATH=$PYENV_ROOT/bin:$HOME/.tfenv/bin:/usr/local/bin:~/bin:~/.local/bin:~
 if [ $(uname) = "Darwin" ]; then
     export PATH="~/Library/Application Support/JetBrains/Toolbox/scripts":$PATH
     source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+elif [ -f ~/.git-completion.bash ]; then
+    source ~/.git-completion.bash
 fi
 __git_complete fb _git_checkout
 __git_complete cullbranch _git_checkout
