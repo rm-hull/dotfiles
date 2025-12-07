@@ -44,11 +44,11 @@
       ],
       "trust": true
     },
-    "playwright": {
+    "chrome-devtools": {
       "command": "npx",
       "args": [
         "-y",
-        "@playwright/mcp@latest"
+        "chrome-devtools-mcp@latest"
       ],
       "trust": true
     }
