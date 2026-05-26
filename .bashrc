@@ -161,9 +161,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
 fi
-export PIPENV_VENV_IN_PROJECT=1
-eval "$(_PIPENV_COMPLETE=bash_source pipenv)"
-
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
